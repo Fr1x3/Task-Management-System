@@ -9,6 +9,23 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
+
+    /**
+     *  Display a list of tasks
+     * 
+     * @param Int page_size
+     * @return Illuminate\Http\jsonResponse
+     */
+    public function index(Request $request){
+
+        // customize number of task in each pagination
+        $pageSize = $request->page_size ?? 20;
+
+        $tasks = Task::query()->paginate($pageSize);
+
+        return new JsonResponse(['tsks' => $tasks]);
+    }
+
     /**
      *  Store new task in the db
      * 
@@ -39,4 +56,6 @@ class TaskController extends Controller
             "task" => $task
         ], 201);
     }
+
+    
 }

@@ -19,4 +19,6 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->get('task', ['uses' => 'Task\TaskController@index']);
+
 $router->post('task', ['uses' => 'Task\TaskController@store']);
