@@ -31,4 +31,4 @@ $router->delete('task/{id}', ['uses' => 'Task\TaskController@destroy']);
 
 $router->get('search', ['uses' => 'Task\SearchTaskController']);
 
-
+$router->get('filter', ['uses' => 'Task\FilterTaskController']);
