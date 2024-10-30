@@ -22,3 +22,5 @@ $router->get('/', function () use ($router) {
 $router->get('task', ['uses' => 'Task\TaskController@index']);
 
 $router->post('task', ['uses' => 'Task\TaskController@store']);
+
+$router->get('task/{id}', ['uses' => 'Task\TaskController@show']);

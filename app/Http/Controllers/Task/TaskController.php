@@ -57,5 +57,22 @@ class TaskController extends Controller
         ], 201);
     }
 
-    
+    /**
+     *  Search for a specific task
+     * 
+     *  @return Illuminate\Http\jsonResponse
+     */
+    public function show(string $id){
+
+        $task = Task::find($id);
+        if($task == null){
+            return new JsonResponse([
+                'message' => 'The task being searched cannot be found'
+            ], 404);
+        }
+
+        return new JsonResponse([
+            'task' => $task
+        ]);
+    }
 }
