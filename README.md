@@ -25,5 +25,5 @@ Finally, the api is up and running. Enjoy tinkering with it.
  
 
  ## Documentation
- [https://documenter.getpostman.com/view/19090451/2sAY4vghTn](Api endpoints documentation)
+ [Api end points documentation](https://documenter.getpostman.com/view/19090451/2sAY4vghTn)
 
