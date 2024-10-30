@@ -75,4 +75,40 @@ class TaskController extends Controller
             'task' => $task
         ]);
     }
+
+    /**
+     *  update the task information
+     */
+    public function update(Request $request, string $id){
+
+        // validate the form data in request
+        $this->validate($request, [
+            'title' => 'max:255|unique:tasks',
+            'description' => 'string',
+            'status' => 'required|in:pending,overdue,canceled,completed',
+            'due_date' => 'date|date_format:Y-m-d|after:created_at'
+        ]);
+
+        // find the task to be updated
+        $task = Task::find($id);
+
+        // thow error if task doesnt exist
+        if($task == null){
+            return new JsonResponse(['No such task exists'], 404);
+        }
+
+        // update value in the database
+        $newTask = $task->update([
+            'title' => $request['title'] ?? $task->title,
+            'description' => $request['description'] ?? $task->description,
+            'status' => $request['status'] ?? $task->status,
+            'due_date' => $request['due_date'] ?? $task->due_date
+        ]);
+
+        // return response
+        return new JsonResponse([
+            'message' => 'Task updated succesfully'
+        ]);
+        
+    }
 }

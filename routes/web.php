@@ -24,3 +24,5 @@ $router->get('task', ['uses' => 'Task\TaskController@index']);
 $router->post('task', ['uses' => 'Task\TaskController@store']);
 
 $router->get('task/{id}', ['uses' => 'Task\TaskController@show']);
+
+$router->put('task/{id}', ['uses' => 'Task\TaskController@update']);
