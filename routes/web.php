@@ -28,3 +28,7 @@ $router->get('task/{id}', ['uses' => 'Task\TaskController@show']);
 $router->put('task/{id}', ['uses' => 'Task\TaskController@update']);
 
 $router->delete('task/{id}', ['uses' => 'Task\TaskController@destroy']);
+
+$router->get('search', ['uses' => 'Task\SearchTaskController']);
+
+
