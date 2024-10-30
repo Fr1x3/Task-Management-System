@@ -26,3 +26,5 @@ $router->post('task', ['uses' => 'Task\TaskController@store']);
 $router->get('task/{id}', ['uses' => 'Task\TaskController@show']);
 
 $router->put('task/{id}', ['uses' => 'Task\TaskController@update']);
+
+$router->delete('task/{id}', ['uses' => 'Task\TaskController@destroy']);

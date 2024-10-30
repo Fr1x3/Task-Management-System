@@ -60,6 +60,8 @@ class TaskController extends Controller
     /**
      *  Search for a specific task
      * 
+     * @param string id
+     * 
      *  @return Illuminate\Http\jsonResponse
      */
     public function show(string $id){
@@ -78,6 +80,11 @@ class TaskController extends Controller
 
     /**
      *  update the task information
+     * 
+     *  @param string id
+     *  @param Request request
+     * 
+     *  @return Illuminate\Http\jsonResponse
      */
     public function update(Request $request, string $id){
 
@@ -110,5 +117,27 @@ class TaskController extends Controller
             'message' => 'Task updated succesfully'
         ]);
         
+    }
+
+    /**
+     *  delete task record from storage
+     * 
+     * @param string id
+     * 
+     * @return Illuminate\Http\jsonResponse
+     */
+    public function destroy(string $id){
+        //delete task record
+        $task = Task::destroy($id);
+
+        if(!$task){
+            return new JsonResponse([
+                'message' => 'Nothing was deleted'
+            ],404);
+        }
+
+        return new JsonResponse([
+            'message' => 'Task successfully deleted'
+        ]);
     }
 }
