@@ -24,3 +24,6 @@ a simple Restful API implementation using Lumen that allows users to manage task
 Finally, the api is up and running. Enjoy tinkering with it.
  
 
+ ## Documentation
+ [https://documenter.getpostman.com/view/19090451/2sAY4vghTn](Api endpoints documentation)
+

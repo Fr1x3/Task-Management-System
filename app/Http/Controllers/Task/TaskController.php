@@ -23,7 +23,7 @@ class TaskController extends Controller
 
         $tasks = Task::query()->paginate($pageSize);
 
-        return new JsonResponse(['tsks' => $tasks]);
+        return new JsonResponse(['tasks' => $tasks]);
     }
 
     /**
