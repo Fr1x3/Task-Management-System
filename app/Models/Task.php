@@ -18,4 +18,12 @@ class Task extends Model
         'status',
         'due_date'
     ];
+
+
+    /**
+     *  set the default value of status
+     */
+    protected $attributes = [
+        'status' => 'pending'
+    ];
 }
